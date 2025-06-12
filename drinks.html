@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starter Dishes - LA DAMBANA</title>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    header {
+        background-color: #997f58;
+        color: white;
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: Georgia, serif;
+    }
+    nav {
+        background-color: #333;
+        padding: 15px;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 5px;
+        display: inline-block;
+        font-weight: bold;
+        transition: 0.3s; 
+    }
+    nav a:hover {
+        background-color: #878686;
+        color: black;
+        border-radius: 5px;
+    }
+    h2.section-title {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 28px;
+        color: #333;
+    }
+    .menu-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+        gap: 20px;
+    }
+    .menu-item {
+        width: 250px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px #ccc;
+        text-align: center;
+        padding: 15px;
+    }
+    .menu-item img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .menu-item button {
+        background-color: #b28542;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .price {
+        font-size: 18px;
+        color: #ea0202;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Starters Dishes</h1>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="popular.html">Popular</a>
+  <a href="starters.html">Starters</a>
+  <a href="maincourse.html">Main Course</a>
+  <a href="sidedish.html">Side Dishes</a>
+  <a href="drinks.html">Drinks</a>
+  <a href="desserts.html">Desserts</a>
+  <a href="bundles.html">Bundles</a>
+  <a href="cart.html" title="Cart"><i class="fas fa-shopping-cart"></i></a>
+</nav>
+
+<h2 class="section-title">Non-Alcoholic Drinks</h2>
+<div id="non-alcoholic" class="menu-section"></div>
+
+<h2 class="section-title">Alcoholic Drinks</h2>
+<div id="alcoholic" class="menu-section"></div>
+
+<script>
+const popularItems = [
+    // Non-Alcoholic Drinks
+    { name: "Buko Juice", price: "₱120", description: "Fresh coconut water served chilled, sometimes with a hint of calamansi.", image: "bukojuice.jpg", type: "non-alcoholic" },
+    { name: "Samalamig", price: "₱100", description: "Sweet, iced drink lemon flavor.", image: "samalamig.jpg", type: "non-alcoholic" },
+    { name: "Mais Con Yelo", price: "₱140", description: "Blended sweet corn with milk, sugar, and crushed ice for a creamy treat.", image: "maisconyelo.jpg", type: "non-alcoholic" },
+    { name: "Kapeng Barako", price: "₱150", description: "Bold and strong Batangas coffee for caffeine lovers.", image: "kapengbarako.webp", type: "non-alcoholic" },
+    { name: "Calamansi Juice", price: "₱130", description: "Tangy Philippine lime juice mixed with honey or sugar.", image: "calamansi.jpg", type: "non-alcoholic" },
+    { name: "Salabat", price: "₱120", description: "Ginger tea, soothing and perfect for cold days.", image: "salabat.jpg", type: "non-alcoholic" },
+    { name: "Avocado Shake", price: "₱160", description: "Creamy blended avocado with milk, a popular Filipino dessert drink.", image: "avocadoshake.jpg", type: "non-alcoholic" },
+    { name: "Pineapple-Coconut Smoothie", price: "₱170", description: "Tropical goodness with fresh pineapple and coconut milk.", image: "pineapplecoconutsmoothie.jpg", type: "non-alcoholic" },
+    { name: "Sago’t Gulaman", price: "₱140", description: "Brown sugar syrup mixed with chewy sago pearls and gelatin cubes.", image: "sagotgulaman.png", type: "non-alcoholic" },
+    { name: "Cacao Chocolate Drink", price: "₱160", description: "Rich, traditional Filipino hot chocolate made from tablea cacao.", image: "cacaochocolatedrink.jpg", type: "non-alcoholic" },
+
+    // Alcoholic Drinks
+    { name: "Lambanog", price: "₱200", description: "A strong coconut liquor, often infused with fruit flavors.", image: "lambanog.jpg", type: "alcoholic" },
+    { name: "Tuba", price: "₱180", description: "A fermented coconut sap drink with a tangy kick.", image: "tuba.webp", type: "alcoholic" },
+    { name: "Filipino Rum Cocktails", price: "₱250", description: "Tanduay rum mixed with tropical juices for a local twist.", image: "rumcocktail.jpg", type: "alcoholic" },
+    { name: "Calamansi Mojito", price: "₱220", description: "A Filipino-style mojito using calamansi juice instead of lime.", image: "calamansimojito.jpg", type: "alcoholic" },
+    { name: "Basil Margarita", price: "₱230", description: "Tequila, basil, calamansi, and honey for a herbaceous twist.", image: "basilmargarita.jpg", type: "alcoholic" },
+    { name: "Boracay Piña Colada", price: "₱240", description: "Coconut milk, pineapple juice, and white rum for a creamy tropical vibe.", image: "pinacolada.jpg", type: "alcoholic" },
+    { name: "Halo-Halo Cocktail", price: "₱260", description: "A fusion of rum, evaporated milk, and local fruits inspired by the famous dessert.", image: "halohalococktail.jpg", type: "alcoholic" },
+    { name: "San Miguel Beer", price: "₱120", description: "A Filipino beer staple available in light or premium variants.", image: "sanmiguelbeer.webp", type: "alcoholic" },
+    { name: "Tropical Gin & Tonic", price: "₱210", description: "Gin mixed with calamansi, mango, and tonic water for a crisp finish.", image: "gintonic.jpg", type: "alcoholic" },
+    { name: "Mango Daiquiri", price: "₱200", description: "Smooth and refreshing, highlighting ripe Philippine mangoes.", image: "mangodanquiri.jpg", type: "alcoholic" }
+];
+
+const nonAlcoholicContainer = document.getElementById("non-alcoholic");
+const alcoholicContainer = document.getElementById("alcoholic");
+
+popularItems.forEach(item => {
+    const div = document.createElement("div");
+    div.classList.add("menu-item");
+    div.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <h3>${item.name} <span class="price">${item.price}</span></h3>
+        <p>${item.description}</p>
+        <button onclick="addToCart('${item.name}', '${item.price}')">Add to Cart</button>
+    `;
+    if (item.type === "non-alcoholic") {
+        nonAlcoholicContainer.appendChild(div);
+    } else {
+        alcoholicContainer.appendChild(div);
+    }
+});
+
+let cart = [];
+function addToCart(name, price) {
+    cart.push({ name, price });
+    alert(`${name} (${price}) added to cart!`);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu – LA DAMBANA</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+  <style>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    nav.center-nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    nav.center-nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .food-gallery {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .food-gallery h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .food-item {
+      background: #f8f8f8;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .food-item:hover {
+      transform: scale(1.02);
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .price {
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .add-btn {
+      background: #008080;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .add-btn:hover {
+      background: #005f5f;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header and Nav -->
+ <header>
+  <nav>
+    <div class="logo">
+      <img src="your-logo.png" alt="La Dambana Logo" style="height: 80px;" />
+    </div>
+    <ul>
+      <li><a href="index.html" class="home-text">Home</a></li>
+      <li><a href="#popular">Popular</a></li>
+      <li><a href="#starters">Starters</a></li>
+      <li><a href="#main-course">Main Course</a></li>
+      <li><a href="#side-dishes">Side Dishes</a></li>
+      <li><a href="#drinks">Drinks</a></li>
+      <li><a href="#desserts">Desserts</a></li>
+      <li><a href="#bundles">Bundles</a></li>
+      <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <!-- Popular Section -->
+  <section class="food-gallery" id="popular">
+    <h2>Popular Dish</h2>
+    <div class="food-grid" id="popular-grid"></div>
+  </section>
+
+  <!-- Add other sections here like starters, maincourse, etc. -->
+  
+  <script>
+    const popularItems = [
+      { name: "Lumpiang Shanghai", price: "₱200", description: "Crispy spring rolls filled with seasoned ground pork, carrots, and onions, served with sweet chili sauce.", image: "shanghai.jpg" },
+      { name: "Kare‑Kare", price: "₱550", description: "Rich peanut stew with beef/oxtail/tripe, served with bagoong.", image: "karekare.webp" },
+      { name: "Mais Con Yelo", price: "₱140", description: "Blended sweet corn, milk, sugar, and crushed ice for a creamy treat.", image: "mais.jpg" },
+      { name: "Halo‑Halo", price: "₱180", description: "Layered dessert with shaved ice, leche flan, ube, sweet beans, and toppings.", image: "halo.webp" }
+    ];
+
+    const popularGrid = document.getElementById("popular-grid");
+
+    popularItems.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "food-item";
+      div.innerHTML = `
+        <div class="image-wrapper">
+          <img src="${item.image}" alt="${item.name}">
+        </div>
+        <h3>${item.name}</h3>
+        <p class="price">${item.price}</p>
+        <p class="description">${item.description}</p>
+        <button class="add-btn" onclick="addToCart('${item.name}', '${item.price}')">Add Now</button>
+      `;
+      popularGrid.appendChild(div);
+    });
+
+    function addToCart(name, price) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+  </script>
+</body>
+</html>

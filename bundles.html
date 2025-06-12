@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bundles - LA DAMBANA</title>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    header {
+        background-color: #997f58;
+        color: white;
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: Georgia, serif;
+    }
+    nav {
+        background-color: #333;
+        padding: 15px;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 5px;
+        display: inline-block;
+        font-weight: bold;
+        transition: 0.3s; 
+    }
+
+    nav a:hover {
+        background-color: #878686;
+        color: black;
+        border-radius: 5px;
+    }
+
+    .bundle-label {
+        font-size: 22px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 40px;
+        margin-bottom: 10px;
+    }
+
+    .bundle-price {
+        font-size: 20px;
+        color: #b28542;
+        margin-bottom: 10px;
+    }
+
+    #menu-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .bundle-options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .menu-item {
+        display: inline-block;
+        width: 300px;
+        margin: 15px;
+        padding: 15px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px #ccc;
+        text-align: left;
+    }
+
+    .menu-item h3 {
+        font-size: 18px;
+        color: #b28542;
+        margin-bottom: 10px;
+    }
+
+    .menu-item ul {
+        padding-left: 20px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .menu-item button {
+        background-color: #b28542;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Bundles</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="popular.html">Popular</a>
+    <a href="starters.html">Starters</a>
+    <a href="maincourse.html">Main Course</a>
+    <a href="sidedish.html">Side Dishes</a>
+    <a href="drinks.html">Drinks</a>
+    <a href="desserts.html">Desserts</a>
+    <a href="bundles.html">Bundles</a>
+    <a href="cart.html" title="Cart"><i class="fas fa-shopping-cart"></i></a>
+</nav>
+
+<div id="menu-container"></div>
+
+<script>
+const bundles = [
+    {
+        label: "🍽️ Bundle for 1–2 persons",
+        price: "₱899",
+        options: [
+            {
+                title: "Option 1",
+                details: [
+                    "✅ Starter: Lumpiang Shanghai & Pandesal with Cheese",
+                    "✅ Main Course: Adobo with Garlic Rice",
+                    "✅ Side Dish: Atchara",
+                    "✅ Dessert: Leche Flan",
+                    "✅ Drink: Calamansi Juice"
+                ]
+            },
+            {
+                title: "Option 2",
+                details: [
+                    "✅ Starter: Puto & Singkamas with Bagoong",
+                    "✅ Main Course: Tinola with Rice",
+                    "✅ Side Dish: Ginisang Kangkong & Tofu",
+                    "✅ Dessert: Minatamis na Saging",
+                    "✅ Drink: Buko Juice"
+                ]
+            }
+        ]
+    },
+    {
+        label: "🍽️ Bundle for 3–5 persons",
+        price: "₱1,999",
+        options: [
+            {
+                title: "Option 1",
+                details: [
+                    "✅ Starter: Lumpiang Shanghai, Tokwa’t Baboy & Kamote Chips",
+                    "✅ Main Course: Kare-Kare & Pancit Canton",
+                    "✅ Side Dish: Ensaladang Mangga & Ginisang Kangkong",
+                    "✅ Dessert: Buko Pandan",
+                    "✅ Drink: Samalamig"
+                ]
+            },
+            {
+                title: "Option 2",
+                details: [
+                    "✅ Starter: Pipino at Kamatis Salad, Nilagang Mani, & Pandesal with Cheese",
+                    "✅ Main Course: Bicol Express & Lechon Kawali",
+                    "✅ Side Dish: Ampalaya Ensalada & Talbos ng Kamote Salad",
+                    "✅ Dessert: Mango Sticky Rice",
+                    "✅ Drink: Sago’t Gulaman"
+                ]
+            }
+        ]
+    },
+    {
+        label: "🍽️ Bundle for 6–8 persons",
+        price: "₱3,299",
+        options: [
+            {
+                title: "Option 1",
+                details: [
+                    "✅ Starter: Lumpiang Shanghai, Singkamas with Bagoong, & Puto",
+                    "✅ Main Course: Lechon Kawali, Sinigang na Baboy, & Bicol Express",
+                    "✅ Side Dish: Ampalaya Ensalada & Talbos ng Kamote Salad",
+                    "✅ Dessert: Mango Sticky Rice",
+                    "✅ Drink: Buko Juice & Kapeng Barako"
+                ]
+            },
+            {
+                title: "Option 2",
+                details: [
+                    "✅ Starter: Tokwa’t Baboy, Kamote Chips, & Pipino at Kamatis Salad",
+                    "✅ Main Course: Adobo, Tinola, & Halabos na Hipon",
+                    "✅ Side Dish: Atchara & Ginisang Kangkong & Tofu",
+                    "✅ Dessert: Ube Halaya",
+                    "✅ Drink: Calamansi Juice & Avocado Shake"
+                ]
+            }
+        ]
+    },
+    {
+        label: "🍽️ Bundle for 8–10 persons",
+        price: "₱4,999",
+        options: [
+            {
+                title: "Option 1",
+                details: [
+                    "✅ Starter: Lumpiang Shanghai, Tokwa’t Baboy, Pipino at Kamatis Salad, & Nilagang Mani",
+                    "✅ Main Course: Tinola, Bulalo, Crispy Pata, & Halabos na Hipon",
+                    "✅ Side Dish: Atchara, Togue Omelet & Ginisang Kangkong & Tofu",
+                    "✅ Dessert: Halo-Halo & Ube Cheesecake",
+                    "✅ Drink: Pineapple-Coconut Smoothie & Tropical Gin & Tonic"
+                ]
+            },
+            {
+                title: "Option 2",
+                details: [
+                    "✅ Starter: Puto, Pandesal with Cheese, Kamote Chips, & Singkamas with Bagoong",
+                    "✅ Main Course: Kare-Kare, Sinigang na Baboy, Bicol Express, & Pancit Canton",
+                    "✅ Side Dish: Ampalaya Ensalada & Talbos ng Kamote Salad",
+                    "✅ Dessert: Leche Flan & Tablea Chocolate Lava Cake",
+                    "✅ Drink: Mais Con Yelo & Calamansi Mojito"
+                ]
+            }
+        ]
+    }
+];
+
+const container = document.getElementById("menu-container");
+
+bundles.forEach(bundle => {
+    const label = document.createElement("div");
+    label.innerHTML = `
+        <div class="bundle-label">${bundle.label}</div>
+        <div class="bundle-price">${bundle.price}</div>
+    `;
+    container.appendChild(label);
+
+    const optionGroup = document.createElement("div");
+    optionGroup.classList.add("bundle-options");
+
+    bundle.options.forEach(option => {
+        const div = document.createElement("div");
+        div.classList.add("menu-item");
+        div.innerHTML = `
+            <h3>${option.title}</h3>
+            <ul>${option.details.map(item => `<li>${item}</li>`).join("")}</ul>
+            <button onclick="addToCart('${bundle.label} - ${option.title}', '${bundle.price}')">Add to Cart</button>
+        `;
+        optionGroup.appendChild(div);
+    });
+
+    container.appendChild(optionGroup);
+});
+
+let cart = [];
+function addToCart(name, price) {
+    cart.push({ name, price });
+    alert(`${name} (${price}) added to cart!`);
+}
+</script>
+
+</body>
+</html>
